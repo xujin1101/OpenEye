@@ -43,7 +43,7 @@ public class MainActivity extends BaseActivity {
         adapter.setFragments(fragments);
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
-       initTab();
+        initTab();
     }
     private void initTab() {
         int[] selects = {R.drawable.selector_selection, R.drawable.selector_discover,R.drawable.selector_author,R.drawable.selector_mine};
