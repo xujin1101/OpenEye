@@ -43,7 +43,6 @@ public class MainActivity extends BaseActivity {
         adapter.setFragments(fragments);
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
-
        initTab();
     }
     private void initTab() {
