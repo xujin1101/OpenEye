@@ -9,4 +9,8 @@
     <dimen name="one_dp">1dp</dimen>
     <dimen name="one_hundred_eighty_dp">180dp</dimen>
     <dimen name="twenty_dp">20sp</dimen>
+    <dimen name="one_hundred_dp">100dp</dimen>
+    <dimen name="ten_dp">10dp</dimen>
+    <dimen name="one_hundred_fifty_dp">150dp</dimen>
+    <dimen name="thirty_dp">30dp</dimen>
 </resources>
