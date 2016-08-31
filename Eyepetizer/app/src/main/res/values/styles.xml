@@ -11,5 +11,8 @@
         <item name="android:textSize">10sp</item>
         <item name="android:textColor">@android:color/secondary_text_dark_nodisable</item>
     </style>
+    <style name="FragmentTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowTitleSize">@dimen/fifty_dp</item>
+    </style>
 
 </resources>
