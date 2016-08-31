@@ -1,11 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="我的"/>
 
-</LinearLayout>
+    <LinearLayout
+        android:id="@+id/liner"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_height="@dimen/one_hundred_fifty_dp">
+        <ImageView
+            android:layout_width="@dimen/one_hundred_dp"
+            android:layout_height="@dimen/zero_dp"
+            android:layout_weight="4"
+            android:layout_margin="@dimen/ten_dp"
+            android:background="@drawable/my_shape"
+            android:src="@mipmap/ic_eye_white"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/zero_dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="点击登录即可发表评论"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/liner_two"
+        android:layout_below="@+id/liner"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/twenty_dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="@dimen/twenty_dp"
+            android:layout_height="@dimen/twenty_dp"
+            android:src="@mipmap/heart"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/ten_dp"
+            android:text="我的收藏"
+            android:layout_marginRight="@dimen/thirty_dp"/>
+        <TextView
+            android:layout_width="@dimen/zero_point_five_dp"
+            android:layout_height="match_parent"
+            android:background="#868686"/>
+        <ImageView
+            android:layout_width="@dimen/twenty_dp"
+            android:layout_height="@dimen/twenty_dp"
+            android:layout_marginLeft="@dimen/thirty_dp"
+            android:src="@mipmap/say"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/ten_dp"
+            android:text="我的评论"
+           />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_line"
+        android:layout_below="@+id/liner_two"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/twenty_dp"
+        android:layout_height="@dimen/zero_point_five_dp"
+        android:background="#868686"/>
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_below="@+id/tv_line"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/tv_num">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="我的消息"
+                android:gravity="center"
+
+                android:layout_marginTop="@dimen/fifty_dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="我的缓存"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/fifty_dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="意见反馈"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/fifty_dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="我要投稿"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/fifty_dp"
+                android:layout_marginBottom="@dimen/twenty_dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/tv_num"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:layout_marginBottom="@dimen/ten_dp"
+        android:text="Version 2.5.1.129"
+        android:textColor="#a1a1a1"/>
+
+
+</RelativeLayout>
