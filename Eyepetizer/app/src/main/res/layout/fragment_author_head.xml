@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_marginLeft="10dp"
+              android:layout_height="match_parent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:layout_marginTop="15dp"
+        android:text="热门作者"
+        android:textSize="12sp"/>
+    <include layout="@layout/view_line_include"
+    />
+    <include
+        layout="@layout/hot_author_include"
+    />
+    <include layout="@layout/view_line_include"/>
+    <include layout="@layout/hot_author_include"/>
+    <include layout="@layout/view_line_include"/>
+    <include layout="@layout/hot_author_include"/>
+    <include layout="@layout/view_line_include"/>
+    <TextView android:id="@+id/new_author"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginBottom="3dp"
+              android:layout_marginTop="20dp"
+              android:text="最新更新作者"
+              android:textSize="12sp"/>
+    <include layout="@layout/view_line_include"/>
+    <include layout="@layout/hot_author_include"/>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <include layout="@layout/hot_author_include"/>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <include layout="@layout/hot_author_include"/>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView android:id="@+id/all_author"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginBottom="3dp"
+              android:layout_marginTop="20dp"
+              android:text="全部作者"
+              android:textSize="12sp"/>
+
+
+</LinearLayout>
