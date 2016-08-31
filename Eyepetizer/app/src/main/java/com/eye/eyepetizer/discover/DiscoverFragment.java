@@ -43,7 +43,7 @@ public class DiscoverFragment extends BaseFragment implements OnClickListener{
         imgSecond = findView(R.id.img_second);
         mBanner = findView(R.id.banner);
         mGlideView = findView(R.id.grid_view);
-
+        //glideview 非置顶
         mGlideView.setFocusable(false);
 
         imgMatch.setOnClickListener(this);
