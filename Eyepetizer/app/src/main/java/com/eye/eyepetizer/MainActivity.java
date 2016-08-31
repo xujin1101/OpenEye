@@ -3,8 +3,11 @@ package com.eye.eyepetizer;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.eye.eyepetizer.author.AuthorFragment;
 import com.eye.eyepetizer.base.BaseActivity;
@@ -14,11 +17,12 @@ import com.eye.eyepetizer.select.SelectFragment;
 
 import java.util.ArrayList;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements OnPageChangeListener {
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private ArrayList<Fragment> fragments;
     private MainAdapter adapter;
+    private ImageView searchIv,menuIv;
 
     @Override
     protected int getLayout() {
@@ -29,6 +33,8 @@ public class MainActivity extends BaseActivity {
     protected void initView() {
         viewPager = (ViewPager) findViewById(R.id.view_pager);
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        searchIv = findView(R.id.title_search_iv);
+        menuIv = findView(R.id.title_more_iv);
     }
 
     @Override
@@ -43,6 +49,8 @@ public class MainActivity extends BaseActivity {
         adapter.setFragments(fragments);
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
+        //ViewPager 滑动监听
+        viewPager.addOnPageChangeListener(this);
         initTab();
     }
     private void initTab() {
@@ -52,6 +60,25 @@ public class MainActivity extends BaseActivity {
         }
     }
 
+    //ViewPager页面发生变化
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
+    }
+    //每次页面切换
+    @Override
+    public void onPageSelected(int position) {
+        if (position == 3) {
+            searchIv.setVisibility(View.GONE);
+            menuIv.setVisibility(View.VISIBLE);
+        } else {
+            searchIv.setVisibility(View.VISIBLE);
+            menuIv.setVisibility(View.GONE);
+        }
+    }
 
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
+    }
 }
