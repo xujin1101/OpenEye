@@ -7,6 +7,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.eye.eyepetizer.R;
+
 /**
  * Created by dllo on 16/8/30.
  */
@@ -68,6 +70,11 @@ public abstract class BaseActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.activity_in, R.anim.activity_out);
+    }
 
 
 }
