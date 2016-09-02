@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:layout_marginLeft="10dp"
+              android:layout_height="wrap_content"
               android:orientation="vertical">
+    <include layout="@layout/hot_author_include"
+    android:id="@+id/head_author_new"/>
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/head_recycler"
+        android:id="@+id/recy_videobrief_data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-
-
 
 </LinearLayout>
