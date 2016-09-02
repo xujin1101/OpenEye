@@ -15,4 +15,5 @@
     <dimen name="fifteen_dp">15dp</dimen>
     <dimen name="twelve_dp">12sp</dimen>
     <dimen name="five_dp">5dp</dimen>
+    <dimen name="two_hundred">200dp</dimen>
 </resources>
