@@ -75,10 +75,13 @@ public class TopWeekAdapter extends BaseAdapter {
         }else {
             myView = (MyView) view.getTag();
         }
-        Glide.with(context).load(mBean.getItemList().get(i).getData().getCover().getFeed()).into(myView.imageView);
+        Glide.with(context).load(mBean.getItemList().get(i).getData().getCover().getFeed()).placeholder(R.mipmap.lolo).error(R.mipmap.lolo).thumbnail(0.2f).into(myView.imageView);
         myView.titleTxt.setText(mBean.getItemList().get(i).getData().getTitle());
         myView.descriptionTxt.setText("#"+mBean.getItemList().get(i).getData().getCategory());
         myView.numTxt.setText(i+1+".");
+
+//        ObjectAnimator.ofFloat(view, "translationY", 400, 0).setDuration(1000).start();
+//        ObjectAnimator.ofFloat(view, "rotationX", 360, 0).setDuration(1000).start();
         return view;
     }
     class MyView{

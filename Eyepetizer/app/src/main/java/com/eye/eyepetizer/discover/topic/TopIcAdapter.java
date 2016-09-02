@@ -1,5 +1,6 @@
 package com.eye.eyepetizer.discover.topic;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,7 +52,10 @@ public class TopIcAdapter extends BaseAdapter {
         }else {
             myView = (MyView) view.getTag();
         }
-        Glide.with(context).load(mTopIcBean.getItemList().get(i).getData().getImage()).into(myView.imageView);
+        Glide.with(context).load(mTopIcBean.getItemList().get(i).getData().getImage()).placeholder(R.mipmap.lolo).error(R.mipmap.lolo).into(myView.imageView);
+
+        ObjectAnimator.ofFloat(view, "translationY", 400, 0).setDuration(1000).start();
+        ObjectAnimator.ofFloat(view, "rotationX", 360, 0).setDuration(1000).start();
         return view;
     }
     class MyView{
