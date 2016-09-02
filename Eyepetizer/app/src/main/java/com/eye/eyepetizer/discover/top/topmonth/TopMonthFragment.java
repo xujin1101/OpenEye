@@ -1,12 +1,9 @@
-package com.eye.eyepetizer.my.mymessage;
+package com.eye.eyepetizer.discover.top.topmonth;
 
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.eye.eyepetizer.R;
-import com.eye.eyepetizer.base.BaseActivity;
+import com.eye.eyepetizer.base.BaseFragment;
 import com.eye.eyepetizer.okHttp.NetTool;
 import com.eye.eyepetizer.okHttp.onHttpCallBack;
 
@@ -32,48 +29,36 @@ import com.eye.eyepetizer.okHttp.onHttpCallBack;
  * 　　　　　　　　　┗┓┓┏━┳┓┏┛ + + + +
  * 　　　　　　　　　　┃┫┫　┃┫┫
  * 　　　　　　　　　　┗┻┛　┗┻┛+ + + +
- * <p>
- * <p>
- * 作者：TheTopKing_杨燚 on 16/9/1 10:47
+ * <p/>
+ * <p/>
+ * 作者：TheTopKing_杨燚 on 16/9/2 09:49
  * 这周日你有空吗
  */
-public class MyMessageActivity extends BaseActivity {
+public class TopMonthFragment extends BaseFragment {
     private ListView mListView;
-    private MyMessageBean mMessageBean;
-    private MyMessageAdapter mMessageAdapter;
-    private ImageView returnImg;
-    String url = "http://baobab.wandoujia.com/api/v3/messages?udid=cd1ee9c5b44e4f9487a505a4fe31ddcb07441cc8&vc=121&vn=2.3.5&deviceModel=MI%205&first_channel=eyepetizer_xiaomi_market&last_channel=eyepetizer_xiaomi_market&system_version_code=23";
+    private TopMonthBean mMonthBean;
+    private TopMonthAdapter mMonthAdapter;
+
+    private String url = "http://baobab.wandoujia.com/api/v3/ranklist?num=10&strategy=monthly&udid=08bd83e35ce74200b1ce8eae3cdf60ea5452b57b&vc=129&vn=2.5.1&deviceModel=Google%20Nexus%205%20-%204.4.4%20-%20API%2019%20-%201080x1920&first_channel=eyepetizer_baidu_market&last_channel=eyepetizer_baidu_market&system_version_code=19";
+
     @Override
     protected int getLayout() {
-        return R.layout.activity_my_message;
+        return R.layout.activity_discover_top_listview;
     }
 
     @Override
     protected void initView() {
-        mListView = (ListView) findViewById(R.id.list_view);
-        returnImg = (ImageView) findViewById(R.id.return_img);
-
-        returnImg.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        mListView = findView(R.id.list_view);
     }
 
     @Override
     protected void initDate() {
-        mMessageAdapter = new MyMessageAdapter(this);
-        NetTool();
-
-    }
-
-    private void NetTool() {
-        NetTool.getInstance().startRequest(url, MyMessageBean.class, new onHttpCallBack<MyMessageBean>() {
+        mMonthAdapter = new TopMonthAdapter(context);
+        NetTool.getInstance().startRequest(url, TopMonthBean.class, new onHttpCallBack<TopMonthBean>() {
             @Override
-            public void onSuccess(MyMessageBean response) {
-                mMessageAdapter.setBean(response);
-                mListView.setAdapter(mMessageAdapter);
+            public void onSuccess(TopMonthBean response) {
+                mMonthAdapter.setBean(response);
+                mListView.setAdapter(mMonthAdapter);
             }
 
             @Override

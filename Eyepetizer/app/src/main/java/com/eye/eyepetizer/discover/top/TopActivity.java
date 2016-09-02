@@ -1,14 +1,19 @@
-package com.eye.eyepetizer.my.mymessage;
+package com.eye.eyepetizer.discover.top;
 
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
-import android.widget.ListView;
 
 import com.eye.eyepetizer.R;
 import com.eye.eyepetizer.base.BaseActivity;
-import com.eye.eyepetizer.okHttp.NetTool;
-import com.eye.eyepetizer.okHttp.onHttpCallBack;
+import com.eye.eyepetizer.discover.top.topmonth.TopMonthFragment;
+import com.eye.eyepetizer.discover.top.topweek.TopWeekFragment;
+import com.eye.eyepetizer.discover.top.topyear.TopYearFragment;
+
+import java.util.ArrayList;
 
 /**
  * 　　　　　　　 ┏┓ 　┏┓+ +
@@ -34,23 +39,25 @@ import com.eye.eyepetizer.okHttp.onHttpCallBack;
  * 　　　　　　　　　　┗┻┛　┗┻┛+ + + +
  * <p>
  * <p>
- * 作者：TheTopKing_杨燚 on 16/9/1 10:47
+ * 作者：TheTopKing_杨燚 on 16/9/2 09:47
  * 这周日你有空吗
  */
-public class MyMessageActivity extends BaseActivity {
-    private ListView mListView;
-    private MyMessageBean mMessageBean;
-    private MyMessageAdapter mMessageAdapter;
+public class TopActivity extends BaseActivity {
+    private ViewPager viewPager;
+    private TabLayout tabLayout;
+    private ArrayList<Fragment> fragments;
+    private TopAdapter mTopAdapter;
     private ImageView returnImg;
-    String url = "http://baobab.wandoujia.com/api/v3/messages?udid=cd1ee9c5b44e4f9487a505a4fe31ddcb07441cc8&vc=121&vn=2.3.5&deviceModel=MI%205&first_channel=eyepetizer_xiaomi_market&last_channel=eyepetizer_xiaomi_market&system_version_code=23";
     @Override
     protected int getLayout() {
-        return R.layout.activity_my_message;
+        return R.layout.activity_discover_top;
     }
 
     @Override
     protected void initView() {
-        mListView = (ListView) findViewById(R.id.list_view);
+        viewPager = (ViewPager) findViewById(R.id.top_viewpager);
+        tabLayout = (TabLayout) findViewById(R.id.top_tab);
+
         returnImg = (ImageView) findViewById(R.id.return_img);
 
         returnImg.setOnClickListener(new OnClickListener() {
@@ -63,24 +70,16 @@ public class MyMessageActivity extends BaseActivity {
 
     @Override
     protected void initDate() {
-        mMessageAdapter = new MyMessageAdapter(this);
-        NetTool();
 
-    }
+        fragments = new ArrayList<>();
+        fragments.add(new TopWeekFragment());
+        fragments.add(new TopMonthFragment());
+        fragments.add(new TopYearFragment());
 
-    private void NetTool() {
-        NetTool.getInstance().startRequest(url, MyMessageBean.class, new onHttpCallBack<MyMessageBean>() {
-            @Override
-            public void onSuccess(MyMessageBean response) {
-                mMessageAdapter.setBean(response);
-                mListView.setAdapter(mMessageAdapter);
-            }
 
-            @Override
-            public void onError(Throwable e) {
-
-            }
-        });
-
+        mTopAdapter = new TopAdapter(getSupportFragmentManager());
+        mTopAdapter.setFragments(fragments);
+        viewPager.setAdapter(mTopAdapter);
+        tabLayout.setupWithViewPager(viewPager);
     }
 }

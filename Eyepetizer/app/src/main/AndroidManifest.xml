@@ -19,6 +19,7 @@
         <activity android:name=".MainActivity"/>
         <activity android:name=".discover.topic.TopIcActivity"/>
         <activity android:name=".my.mymessage.MyMessageActivity"/>
+        <activity android:name=".discover.top.TopActivity"/>
     </application>
 
 </manifest>

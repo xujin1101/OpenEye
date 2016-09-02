@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.eye.eyepetizer.R;
 import com.eye.eyepetizer.base.BaseFragment;
+import com.eye.eyepetizer.discover.top.TopActivity;
 import com.eye.eyepetizer.discover.topic.TopIcActivity;
 import com.eye.eyepetizer.okHttp.NetTool;
 import com.eye.eyepetizer.okHttp.onHttpCallBack;
@@ -117,6 +118,7 @@ public class DiscoverFragment extends BaseFragment implements OnClickListener{
         switch (v.getId()){
             case R.id.img_first:
                 Toast.makeText(context, "点击了最受欢迎", Toast.LENGTH_SHORT).show();
+                gotoActivity(context, TopActivity.class);
                 break;
             case R.id.top_ic:
                 Toast.makeText(context, "点击了热门专题", Toast.LENGTH_SHORT).show();
