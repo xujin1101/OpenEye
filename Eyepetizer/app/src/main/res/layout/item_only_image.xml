@@ -7,7 +7,7 @@
     <ImageView
         android:id="@+id/image_view"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/one_hundred_eighty_dp"
+        android:layout_height="@dimen/two_hundred"
         android:scaleType="fitXY"/>
 
 </LinearLayout>
