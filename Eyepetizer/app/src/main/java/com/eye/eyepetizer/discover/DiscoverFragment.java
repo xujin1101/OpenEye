@@ -11,6 +11,8 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.eye.eyepetizer.R;
 import com.eye.eyepetizer.base.BaseFragment;
+import com.eye.eyepetizer.discover.top.TopActivity;
+import com.eye.eyepetizer.discover.topic.TopIcActivity;
 import com.eye.eyepetizer.okHttp.NetTool;
 import com.eye.eyepetizer.okHttp.onHttpCallBack;
 import com.youth.banner.Banner;
@@ -23,7 +25,7 @@ import java.util.List;
  * 发现Fragment
  */
 public class DiscoverFragment extends BaseFragment implements OnClickListener{
-    private ImageView imgMatch,imgFirst,imgSecond;
+    private ImageView imgMatch,imgFirst,topIC;
     private Banner mBanner;
     private List<String> bannerUrl;
     private GridView mGlideView;
@@ -40,7 +42,7 @@ public class DiscoverFragment extends BaseFragment implements OnClickListener{
     protected void initView() {
         imgMatch = findView(R.id.img_match);
         imgFirst = findView(R.id.img_first);
-        imgSecond = findView(R.id.img_second);
+        topIC = findView(R.id.top_ic);
         mBanner = findView(R.id.banner);
         mGlideView = findView(R.id.grid_view);
         //glideview 非置顶
@@ -48,7 +50,14 @@ public class DiscoverFragment extends BaseFragment implements OnClickListener{
 
         imgMatch.setOnClickListener(this);
         imgFirst.setOnClickListener(this);
-        imgSecond.setOnClickListener(this);
+        topIC.setOnClickListener(this);
+
+        topIC.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoActivity(context, TopIcActivity.class);
+            }
+        });
     }
 
     @Override
@@ -82,7 +91,7 @@ public class DiscoverFragment extends BaseFragment implements OnClickListener{
                 String Match = response.getItemList().get(3).getData().getImage();
                 Glide.with(getContext()).load(Match).into(imgMatch);
                 Glide.with(getContext()).load(FirstImg).into(imgFirst);
-                Glide.with(getContext()).load(SecondImg).into(imgSecond);
+                Glide.with(getContext()).load(SecondImg).into(topIC);
 
                 mDiscoverAdapter.setBean(response);
                 mGlideView.setAdapter(mDiscoverAdapter);
@@ -109,9 +118,14 @@ public class DiscoverFragment extends BaseFragment implements OnClickListener{
         switch (v.getId()){
             case R.id.img_first:
                 Toast.makeText(context, "点击了最受欢迎", Toast.LENGTH_SHORT).show();
+                gotoActivity(context, TopActivity.class);
                 break;
-            case R.id.img_second:
+            case R.id.top_ic:
                 Toast.makeText(context, "点击了热门专题", Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(getActivity(),TopIcActivity.class);
+//                startActivity(intent);
+
+              //  gotoActivity(getContext(), TopIcActivity.class);
                 break;
             case R.id.img_match:
                 Toast.makeText(context, "点击了360°", Toast.LENGTH_SHORT).show();

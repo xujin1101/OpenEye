@@ -3,7 +3,6 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="zero_dp">0dp</dimen>
-
     <dimen name="fifty_dp">50dp</dimen>
     <dimen name="zero_point_five_dp">0.5dp</dimen>
     <dimen name="one_dp">1dp</dimen>
@@ -17,4 +16,10 @@
     <dimen name="twelve_dp">12sp</dimen>
     <dimen name="five_dp">5dp</dimen>
     <dimen name="two_hundred_dp">200dp</dimen>
+    <dimen name="two_hundred">200dp</dimen>
+    <dimen name="three_dp">3dp</dimen>
+    <dimen name="two_hundred_entity">280dp</dimen>
+    <dimen name="one_hundrde_thirty">130dp</dimen>
+    <dimen name="fourteen">14sp</dimen>
+    <dimen name="thirteen_sp">13sp</dimen>
 </resources>

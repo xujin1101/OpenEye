@@ -27,22 +27,25 @@
             android:id="@+id/img_first"
             android:layout_width="@dimen/zero_dp"
             android:layout_weight="1"
-            android:layout_margin="@dimen/one_dp"
-            android:src="@mipmap/ic_launcher"
+            android:layout_marginTop="@dimen/one_dp"
+            android:layout_marginBottom="@dimen/one_dp"
+            android:scaleType="fitXY"
             android:layout_height="@dimen/one_hundred_eighty_dp"/>
         <ImageView
-            android:id="@+id/img_second"
+            android:id="@+id/top_ic"
             android:layout_width="@dimen/zero_dp"
             android:layout_weight="1"
-            android:layout_margin="@dimen/one_dp"
-            android:src="@mipmap/ic_launcher"
+            android:layout_marginTop="@dimen/one_dp"
+            android:layout_marginBottom="@dimen/one_dp"
+            android:layout_marginLeft="@dimen/one_dp"
+            android:scaleType="fitXY"
             android:layout_height="@dimen/one_hundred_eighty_dp"/>
     </LinearLayout>
 
     <ImageView
         android:id="@+id/img_match"
-        android:src="@mipmap/ic_launcher"
         android:layout_width="match_parent"
+        android:scaleType="fitXY"
         android:layout_height="@dimen/one_hundred_eighty_dp"/>
 
     <com.eye.eyepetizer.until.EyeGridView
