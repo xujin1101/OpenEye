@@ -1,14 +1,11 @@
 package com.eye.eyepetizer.author;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -22,15 +19,11 @@ import jp.wasabeef.glide.transformations.CropCircleTransformation;
  */
 public class AllAuthorAdapter extends BaseAdapter{
     public Context context;
-    private ListView mListView;
+
     private AllAuthorEntity mAllAuthorEntity;
 
     public AllAuthorAdapter(Context context) {
         this.context = context;
-    }
-
-    public void setListView(ListView listView) {
-        mListView = listView;
     }
 
     public void setAllAuthorEntity(AllAuthorEntity allAuthorEntity) {
