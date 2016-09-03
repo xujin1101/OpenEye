@@ -85,14 +85,12 @@ public class AuthorListAdapter extends Adapter<RecyclerView.ViewHolder> {
                 briefCardViewHolder.tvTitle.setText(author.getItemList().get(position).getData().getTitle());
                 briefCardViewHolder.tvSubTitle.setText(author.getItemList().get(position).getData().getSubTitle());
                 briefCardViewHolder.tvDescription.setText(author.getItemList().get(position).getData().getDescription());
-                Glide.with(mContext).load(author.getItemList().get(position).getData().getIcon()).bitmapTransform(new CropSquareTransformation(mContext)).into(briefCardViewHolder.ivIcon);
+                Glide.with(mContext).load(author.getItemList().get(position).getData().getIcon()).bitmapTransform(new CropCircleTransformation(mContext)).into(briefCardViewHolder.ivIcon);
                 //注意我这里的点击事件都没有设置呢.
                 // TODO: 16/9/1
                 break;
             case VIDEOBRIEF:
                 VideoBriefViewHolder videoBriefViewHolder = (VideoBriefViewHolder) holder;
-                Log.d("12345648798", "author.getCount():" + author.getCount());
-                Log.d("cc", "position" + position);
 
                 videoBriefViewHolder.tvTitle.setText(author.getItemList().get(position).getData().getHeader().getTitle());
                 videoBriefViewHolder.tvSubTitle.setText(author.getItemList().get(position).getData().getHeader().getSubTitle());

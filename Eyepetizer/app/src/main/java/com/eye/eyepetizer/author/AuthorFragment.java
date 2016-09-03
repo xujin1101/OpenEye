@@ -23,7 +23,7 @@ import okhttp3.Callback;
  * 作者Fragment
  */
 public class AuthorFragment extends BaseFragment {
-    private String allAuthorUrl = "http://baobab.wandoujia.com/api/v3/tabs/pgcs/more?start=0&num=85";
+    private String allAuthorUrl = "http://baobab.wandoujia.com/api/v3/tabs/pgcs/more?start=10&num=85";
     private String headAuthorUrl = "http://baobab.wandoujia.com/api/v3/tabs/pgcs?";
     private AllAuthorAdapter mAdapter;
     private ListView mListView;
