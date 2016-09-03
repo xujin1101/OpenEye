@@ -1,5 +1,6 @@
 package com.eye.eyepetizer.discover;
 
+import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -11,6 +12,8 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.eye.eyepetizer.R;
 import com.eye.eyepetizer.base.BaseFragment;
+import com.eye.eyepetizer.discover.glideview.GlideViewNextActivity;
+import com.eye.eyepetizer.discover.panorama.PanoramaNextActivity;
 import com.eye.eyepetizer.discover.top.TopActivity;
 import com.eye.eyepetizer.discover.topic.TopIcActivity;
 import com.eye.eyepetizer.okHttp.NetTool;
@@ -33,6 +36,7 @@ public class DiscoverFragment extends BaseFragment implements OnClickListener{
 
 
     String url = "http://baobab.wandoujia.com/api/v3/discovery?udid=cd1ee9c5b44e4f9487a505a4fe31ddcb07441cc8&vc=121&vn=2.3.5&deviceModel";
+
     @Override
     protected int getLayout() {
         return R.layout.fragment_discover;
@@ -58,6 +62,7 @@ public class DiscoverFragment extends BaseFragment implements OnClickListener{
                 gotoActivity(context, TopIcActivity.class);
             }
         });
+
     }
 
     @Override
@@ -66,7 +71,7 @@ public class DiscoverFragment extends BaseFragment implements OnClickListener{
         mDiscoverAdapter = new DiscoverAdapter(context);
         NetTool.getInstance().startRequest(url, DiscoverBean.class, new onHttpCallBack<DiscoverBean>() {
             @Override
-            public void onSuccess(DiscoverBean response) {
+            public void onSuccess(final DiscoverBean response) {
                 for (int i = 0; i < response.getItemList().get(0).getData().getItemList().size(); i++) {
                     bannerUrl.add(response.getItemList().get(0).getData().getItemList().get(i).getData().getImage());
                     //设置间隔
@@ -93,13 +98,30 @@ public class DiscoverFragment extends BaseFragment implements OnClickListener{
                 Glide.with(getContext()).load(FirstImg).into(imgFirst);
                 Glide.with(getContext()).load(SecondImg).into(topIC);
 
+
+
                 mDiscoverAdapter.setBean(response);
                 mGlideView.setAdapter(mDiscoverAdapter);
 
                 mGlideView.setOnItemClickListener(new OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        Toast.makeText(context, "点击了第" + position+"个", Toast.LENGTH_SHORT).show();
+//                        Bundle bundle = new Bundle();
+//                        bundle.putInt("id",response.getItemList().get(position).getData().getId());
+//                        goToActivity(context, GlideViewNextActivity.class,bundle);
+
+
+                        Intent intent = new Intent(context, GlideViewNextActivity.class);
+                        intent.putExtra("id",response.getItemList().get(position + 4).getData().getId());
+                        startActivity(intent);
+                    }
+                });
+
+                imgMatch.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(context, PanoramaNextActivity.class);
+                        startActivity(intent);
                     }
                 });
 
@@ -129,6 +151,7 @@ public class DiscoverFragment extends BaseFragment implements OnClickListener{
                 break;
             case R.id.img_match:
                 Toast.makeText(context, "点击了360°", Toast.LENGTH_SHORT).show();
+
                 break;
 
         }
