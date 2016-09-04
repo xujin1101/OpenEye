@@ -21,6 +21,8 @@
         <activity android:name=".discover.topic.TopIcActivity"/>
         <activity android:name=".my.mymessage.MyMessageActivity"/>
         <activity android:name=".discover.top.TopActivity"/>
+        <activity android:name=".discover.glideview.GlideViewNextActivity"/>
+        <activity android:name=".discover.panorama.PanoramaNextActivity"/>
     </application>
 
 </manifest>

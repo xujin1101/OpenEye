@@ -17,6 +17,7 @@ import com.eye.eyepetizer.R;
 public class DiscoverAdapter extends BaseAdapter{
     private DiscoverBean mBean;
     private Context context;
+    private int mNum;
 
     public DiscoverAdapter(Context context) {
         this.context = context;
@@ -43,7 +44,8 @@ public class DiscoverAdapter extends BaseAdapter{
     }
 
     @Override
-    public View getView(int i, View view, final ViewGroup viewGroup) {
+    public View getView(final int i, View view, final ViewGroup viewGroup) {
+        mNum = i;
         MyView myView = null;
         if (myView == null){
             view = LayoutInflater.from(context).inflate(R.layout.item_discover_gridview,viewGroup,false);

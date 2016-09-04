@@ -9,6 +9,7 @@
         android:layout_width="@dimen/one_hundred_eighty_dp"
         android:layout_height="@dimen/one_hundred_eighty_dp"
         android:layout_margin="@dimen/one_dp"
+        android:scaleType="fitXY"
         android:src="@mipmap/ic_launcher"/>
     <TextView
         android:id="@+id/grid_txt"
