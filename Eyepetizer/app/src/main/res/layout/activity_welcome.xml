@@ -3,8 +3,13 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-                android:background="@mipmap/background">
+        >
 
+    <ImageView
+        android:id="@+id/back_img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"/>
     <ImageView
         android:id="@+id/welcome_img"
         android:layout_width="match_parent"
