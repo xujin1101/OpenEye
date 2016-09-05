@@ -3,10 +3,7 @@ package com.eye.eyepetizer;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
+import android.support.v4.view.ViewPager.OnPageChangeListener;import android.view.View;
 import android.widget.ImageView;
 
 import com.eye.eyepetizer.author.AuthorFragment;
@@ -16,7 +13,6 @@ import com.eye.eyepetizer.my.MyFragment;
 import com.eye.eyepetizer.select.SelectFragment;
 
 import java.util.ArrayList;
-
 public class MainActivity extends BaseActivity implements OnPageChangeListener {
     private ViewPager viewPager;
     private TabLayout tabLayout;
@@ -54,7 +50,7 @@ public class MainActivity extends BaseActivity implements OnPageChangeListener {
         initTab();
     }
     private void initTab() {
-        int[] selects = {R.drawable.selector_selection, R.drawable.selector_discover,R.drawable.selector_author,R.drawable.selector_mine};
+        int[] selects = {R.drawable.selector_selection, R.drawable.selector_discover, R.drawable.selector_author, R.drawable.selector_mine};
         for (int i = 0; i < selects.length; i++) {
             tabLayout.getTabAt(i).setIcon(selects[i]);
         }
