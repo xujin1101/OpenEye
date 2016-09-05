@@ -79,12 +79,14 @@ public class DiscoverFragment extends BaseFragment implements OnClickListener{
                     //添加图片
                     mBanner.setImages(bannerUrl);
                     //banner加点
-                    mBanner.setBannerStyle(Banner.CIRCLE_INDICATOR);
+//                    mBanner.setBannerStyle(Banner.CIRCLE_INDICATOR);
                     //点居中
-                    mBanner.setIndicatorGravity(Banner.CENTER);
+                  //  mBanner.setIndicatorGravity(Banner.CENTER);
+
                     mBanner.setOnBannerClickListener(new OnBannerClickListener() {
                         @Override
-                        public void OnBannerClick(View view, int position) {
+                        public void OnBannerClick(int position) {
+
                             Toast.makeText(context, "点击了第"+position+"张", Toast.LENGTH_SHORT).show();
                         }
                     });
