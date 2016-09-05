@@ -23,6 +23,7 @@
         <activity android:name=".discover.top.TopActivity"/>
         <activity android:name=".discover.glideview.GlideViewNextActivity"/>
         <activity android:name=".discover.panorama.PanoramaNextActivity"/>
+        <activity android:name=".discover.banner.BannerFirstNextActivity"/>
     </application>
 
 </manifest>

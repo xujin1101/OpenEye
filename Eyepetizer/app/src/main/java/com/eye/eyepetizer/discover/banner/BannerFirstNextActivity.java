@@ -1,12 +1,16 @@
-package com.eye.eyepetizer.discover.glideview.time;
+package com.eye.eyepetizer.discover.banner;
 
 import android.content.Intent;
-import android.widget.ListView;
+import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.eye.eyepetizer.R;
-import com.eye.eyepetizer.base.BaseFragment;
-import com.eye.eyepetizer.okHttp.NetTool;
-import com.eye.eyepetizer.okHttp.onHttpCallBack;
+import com.eye.eyepetizer.base.BaseActivity;
 
 /**
  * 　　　　　　　 ┏┓ 　┏┓+ +
@@ -30,48 +34,48 @@ import com.eye.eyepetizer.okHttp.onHttpCallBack;
  * 　　　　　　　　　┗┓┓┏━┳┓┏┛ + + + +
  * 　　　　　　　　　　┃┫┫　┃┫┫
  * 　　　　　　　　　　┗┻┛　┗┻┛+ + + +
- * <p>
- * <p>
- * 作者：TheTopKing_杨燚 on 16/9/3 10:26
+ * <p/>
+ * <p/>
+ * 作者：TheTopKing_杨燚 on 16/9/5 15:36
  * 这周日你有空吗
  */
-public class GlideViewNextTimeFragment extends BaseFragment {
-    private ListView mListView;
-    private GlideViewNextFragmentTimeAdapter mAdapter;
-    private GlideViewFragmentTimeBean mBean;
-
-    private String url;
-    private String headUrl = "http://baobab.wandoujia.com/api/v3/videos?categoryId=";
-    private String endUrl = "&strategy=date&udid=cd1ee9c5b44e4f9487a505a4fe31ddcb07441cc8&vc=121&vn=2.3.5&deviceModel=MI%205&first_channel=eyepetizer_xiaomi_market&last_channel=eyepetizer_xiaomi_market&system_version_code=23";
+public class BannerFirstNextActivity extends BaseActivity {
+    private WebView mWebView;
+    private TextView titleText;
+    private ImageView returnImg;
+    String url;
     @Override
     protected int getLayout() {
-        return R.layout.activity_discover_top_listview;
+        return R.layout.banner_first_next;
     }
 
     @Override
     protected void initView() {
-        mListView = findView(R.id.list_view);
+        mWebView = (WebView) findViewById(R.id.web_view);
+        titleText = (TextView) findViewById(R.id.title_text);
+        returnImg = (ImageView) findViewById(R.id.return_img);
 
+        returnImg.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override
     protected void initDate() {
-        mAdapter = new GlideViewNextFragmentTimeAdapter(context);
-        Intent intent = getActivity().getIntent();
-        int id = intent.getIntExtra("id", 0);
-        url = headUrl + id + endUrl;
-        NetTool.getInstance().startRequest(url, GlideViewFragmentTimeBean.class, new onHttpCallBack<GlideViewFragmentTimeBean>() {
+        Intent intent = getIntent();
+        url = intent.getStringExtra("url");
+        titleText.setText(intent.getStringExtra("text"));
+        Log.d("uu", url);
+        mWebView.loadUrl(url);
+        mWebView.setWebViewClient(new WebViewClient() {
             @Override
-            public void onSuccess(GlideViewFragmentTimeBean response) {
-                mAdapter.setBean(response);
-                mListView.setAdapter(mAdapter);
-            }
-
-            @Override
-            public void onError(Throwable e) {
-
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(url);
+                return true;
             }
         });
-
     }
 }

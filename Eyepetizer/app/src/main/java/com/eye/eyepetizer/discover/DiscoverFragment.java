@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.eye.eyepetizer.R;
 import com.eye.eyepetizer.base.BaseFragment;
+import com.eye.eyepetizer.discover.banner.BannerFirstNextActivity;
 import com.eye.eyepetizer.discover.glideview.GlideViewNextActivity;
 import com.eye.eyepetizer.discover.panorama.PanoramaNextActivity;
 import com.eye.eyepetizer.discover.top.TopActivity;
@@ -19,7 +20,7 @@ import com.eye.eyepetizer.discover.topic.TopIcActivity;
 import com.eye.eyepetizer.okHttp.NetTool;
 import com.eye.eyepetizer.okHttp.onHttpCallBack;
 import com.youth.banner.Banner;
-import com.youth.banner.listener.OnBannerClickListener;
+import com.youth.banner.Banner.OnBannerClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -79,15 +80,28 @@ public class DiscoverFragment extends BaseFragment implements OnClickListener{
                     //添加图片
                     mBanner.setImages(bannerUrl);
                     //banner加点
-//                    mBanner.setBannerStyle(Banner.CIRCLE_INDICATOR);
+                    mBanner.setBannerStyle(Banner.CIRCLE_INDICATOR);
                     //点居中
-                  //  mBanner.setIndicatorGravity(Banner.CENTER);
+                    mBanner.setIndicatorGravity(Banner.CENTER);
 
                     mBanner.setOnBannerClickListener(new OnBannerClickListener() {
                         @Override
-                        public void OnBannerClick(int position) {
-
+                        public void OnBannerClick(View view, int position) {
                             Toast.makeText(context, "点击了第"+position+"张", Toast.LENGTH_SHORT).show();
+                            switch (position){
+                                case 1:
+                                    Intent intentfirst = new Intent(context,BannerFirstNextActivity.class);
+                                    intentfirst.putExtra("url","http://www.wandoujia.com/eyepetizer/collection.html?name=autumn&shareable=true");
+                                    intentfirst.putExtra("text","纵情犯罪: 贴, 秋, 膘");
+                                    startActivity(intentfirst);
+                                    break;
+                                case 2:
+                                    Intent intent = new Intent(context,BannerFirstNextActivity.class);
+                                    intent.putExtra("url","http://www.wandoujia.com/eyepetizer/article.html?nid=963&shareable=true");
+                                    intent.putExtra("text","时光里, 爱上独一无二的你");
+                                    startActivity(intent);
+                                    break;
+                            }
                         }
                     });
                 }
