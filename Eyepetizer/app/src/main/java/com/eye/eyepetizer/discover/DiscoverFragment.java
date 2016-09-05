@@ -19,7 +19,7 @@ import com.eye.eyepetizer.discover.topic.TopIcActivity;
 import com.eye.eyepetizer.okHttp.NetTool;
 import com.eye.eyepetizer.okHttp.onHttpCallBack;
 import com.youth.banner.Banner;
-import com.youth.banner.Banner.OnBannerClickListener;
+import com.youth.banner.listener.OnBannerClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
