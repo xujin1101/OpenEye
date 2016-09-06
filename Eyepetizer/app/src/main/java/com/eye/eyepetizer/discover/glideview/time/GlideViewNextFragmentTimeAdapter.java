@@ -40,6 +40,7 @@ import com.eye.eyepetizer.R;
  * 这周日你有空吗
  */
 public class GlideViewNextFragmentTimeAdapter extends BaseAdapter {
+
     private GlideViewFragmentTimeBean mBean;
     private Context context;
 
@@ -76,11 +77,20 @@ public class GlideViewNextFragmentTimeAdapter extends BaseAdapter {
         } else {
             myView = (MyView) view.getTag();
         }
+
+//        if (position == 0) {
+//            for (int j = 1; j < mBean.getItemList().size(); j++) {
+//                Glide.with(context).load(mBean.getItemList().get(j).getData().getCover().getFeed()).placeholder(R.mipmap.lolo).error(R.mipmap.lolo).thumbnail(0.2f).into(myView.imageView);
+//                myView.titleTxt.setText(mBean.getItemList().get(j).getData().getTitle());
+//                myView.descriptionTxt.setText("#" + mBean.getItemList().get(j).getData().getCategory());
+//                myView.numTxt.setText(j + 1 + ".");
+//            }
+//        } else {
         Glide.with(context).load(mBean.getItemList().get(i).getData().getCover().getFeed()).placeholder(R.mipmap.lolo).error(R.mipmap.lolo).thumbnail(0.2f).into(myView.imageView);
         myView.titleTxt.setText(mBean.getItemList().get(i).getData().getTitle());
         myView.descriptionTxt.setText("#" + mBean.getItemList().get(i).getData().getCategory());
         myView.numTxt.setText(i + 1 + ".");
-
+        // }
         ObjectAnimator.ofFloat(view, "translationY", 400, 0).setDuration(1000).start();
         ObjectAnimator.ofFloat(view, "rotationX", 360, 0).setDuration(1000).start();
         return view;
@@ -99,4 +109,6 @@ public class GlideViewNextFragmentTimeAdapter extends BaseAdapter {
             numTxt = (TextView) view.findViewById(R.id.num_txt);
         }
     }
+
+
 }

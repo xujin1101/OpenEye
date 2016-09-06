@@ -75,7 +75,7 @@ public class TopYearAdapter extends BaseAdapter {
         }else {
             myView = (MyView) view.getTag();
         }
-        Glide.with(context).load(mBean.getItemList().get(i).getData().getCover().getFeed()).placeholder(R.mipmap.lolo).error(R.mipmap.lolo).thumbnail(0.2f).into(myView.imageView);
+        Glide.with(context).load(mBean.getItemList().get(i).getData().getCover().getFeed()).placeholder(R.mipmap.lolo).error(R.mipmap.lolo).thumbnail(0.5f).into(myView.imageView);
         myView.titleTxt.setText(mBean.getItemList().get(i).getData().getTitle());
         myView.descriptionTxt.setText("#"+mBean.getItemList().get(i).getData().getCategory());
         myView.numTxt.setText(i+1+".");
