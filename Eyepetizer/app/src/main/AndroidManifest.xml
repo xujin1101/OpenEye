@@ -20,6 +20,7 @@
         <activity android:name=".discover.topic.TopIcActivity"/>
         <activity android:name=".my.mymessage.MyMessageActivity"/>
         <activity android:name=".discover.top.TopActivity"/>
+        <activity android:name=".author.authorDetail.AuthorDetail"/>
     </application>
 
 </manifest>

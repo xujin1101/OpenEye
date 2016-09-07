@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+    <!--这里用了自定义控件,MyScrollView-->
+    <!--这里边用了radiobutton,只能一次选一个,默认开始选择第一个.-->
+    <!--上面的返回键,不在scrollview里边,不会随着滑动.-->
+    <com.eye.eyepetizer.base.MyScrollview
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/headLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/personal"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="50dp"
+                android:src="@mipmap/ic_launcher"/>
+            <LinearLayout
+                android:id="@+id/lalala_linearlayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/authordetial_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:text="lalala"
+                    android:visibility="visible"/>
+                <TextView
+                    android:id="@+id/authordetial_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="asd"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="50dp"
+                android:id="@+id/suspensionLayout"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="vertical">
+                <RadioGroup
+                    android:id="@+id/RadioGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/time_radio"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="按时间排序"
+                        android:textSize="20sp"/>
+                    <RadioButton
+                        android:id="@+id/enjoy_radio"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="按分享排序"
+                        android:textSize="20sp"
+                    />
+
+                </RadioGroup>
+
+
+            </LinearLayout>
+            <FrameLayout
+                android:id="@+id/replace_layout_mine"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+
+        </LinearLayout>
+
+    </com.eye.eyepetizer.base.MyScrollview>
+    <RelativeLayout
+        android:id="@+id/titleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/message_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:src="@mipmap/abc_ic_ab_back_holo_light"/>
+        <ImageView
+            android:id="@+id/mine_set"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+
+            android:layout_margin="10dp"
+            android:src="@mipmap/ic_eye_black_error"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

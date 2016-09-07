@@ -16,7 +16,8 @@ import com.eye.eyepetizer.discover.topic.TopIcActivity;
 import com.eye.eyepetizer.okHttp.NetTool;
 import com.eye.eyepetizer.okHttp.onHttpCallBack;
 import com.youth.banner.Banner;
-import com.youth.banner.Banner.OnBannerClickListener;
+
+import com.youth.banner.listener.OnBannerClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,17 +73,18 @@ public class DiscoverFragment extends BaseFragment implements OnClickListener{
                     //设置间隔
                     mBanner.setDelayTime(3000);
                     //添加图片
-                    mBanner.setImages(bannerUrl);
-                    //banner加点
-                    mBanner.setBannerStyle(Banner.CIRCLE_INDICATOR);
-                    //点居中
-                    mBanner.setIndicatorGravity(Banner.CENTER);
+//                    mBanner.setImages(bannerUrl);
+//                    //banner加点
+//                    mBanner.setBannerStyle(Banner.CIRCLE_INDICATOR);
+//                    //点居中
+//                    mBanner.setIndicatorGravity(Banner.CENTER);
                     mBanner.setOnBannerClickListener(new OnBannerClickListener() {
                         @Override
-                        public void OnBannerClick(View view, int position) {
+                        public void OnBannerClick(int position) {
                             Toast.makeText(context, "点击了第"+position+"张", Toast.LENGTH_SHORT).show();
                         }
                     });
+
                 }
 
 
@@ -92,10 +94,8 @@ public class DiscoverFragment extends BaseFragment implements OnClickListener{
                 Glide.with(getContext()).load(Match).into(imgMatch);
                 Glide.with(getContext()).load(FirstImg).into(imgFirst);
                 Glide.with(getContext()).load(SecondImg).into(topIC);
-
                 mDiscoverAdapter.setBean(response);
                 mGlideView.setAdapter(mDiscoverAdapter);
-
                 mGlideView.setOnItemClickListener(new OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
