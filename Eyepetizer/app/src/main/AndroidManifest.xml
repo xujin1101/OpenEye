@@ -4,6 +4,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
+        android:name=".base.EyeApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -20,7 +21,13 @@
         <activity android:name=".discover.topic.TopIcActivity"/>
         <activity android:name=".my.mymessage.MyMessageActivity"/>
         <activity android:name=".discover.top.TopActivity"/>
+<<<<<<< HEAD
         <activity android:name=".author.authorDetail.AuthorDetail"/>
+=======
+        <activity android:name=".discover.glideview.GlideViewNextActivity"/>
+        <activity android:name=".discover.panorama.PanoramaNextActivity"/>
+        <activity android:name=".discover.banner.BannerFirstNextActivity"/>
+>>>>>>> 3055927e5a53f7bb1c91f50ab49c1e53b4f0633e
     </application>
 
 </manifest>

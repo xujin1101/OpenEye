@@ -15,11 +15,11 @@
     <dimen name="fifteen_dp">15dp</dimen>
     <dimen name="twelve_dp">12sp</dimen>
     <dimen name="five_dp">5dp</dimen>
+    <dimen name="two_hundred_dp">200dp</dimen>
     <dimen name="two_hundred">200dp</dimen>
     <dimen name="three_dp">3dp</dimen>
     <dimen name="two_hundred_entity">280dp</dimen>
     <dimen name="one_hundrde_thirty">130dp</dimen>
     <dimen name="fourteen">14sp</dimen>
     <dimen name="thirteen_sp">13sp</dimen>
-
 </resources>

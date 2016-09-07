@@ -4,10 +4,11 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <ListView
-        android:id="@+id/select_lv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:divider="@null"/>
 
+    <ImageView
+        android:id="@+id/image_banner"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:src="@mipmap/ic_launcher"
+        android:scaleType="fitXY"/>
 </LinearLayout>

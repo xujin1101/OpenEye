@@ -42,7 +42,7 @@ import com.eye.eyepetizer.okHttp.onHttpCallBack;
  */
 public class WelcomeActivity extends BaseActivity {
     private TextView timeText, welcomeText;
-    private ImageView welcomeImg;
+    private ImageView welcomeImg,backImg;
     private String url = "http://baobab.wandoujia.com/api/v2/configs?model=Android&udid=cd1ee9c5b44e4f9487a505a4fe31ddcb07441cc8&vc=121&vn=2.3.5&deviceModel=MI%205&first_channel=eyepetizer_xiaomi_market&last_channel=eyepetizer_xiaomi_market&system_version_code=23";
 
     @Override
@@ -57,6 +57,7 @@ public class WelcomeActivity extends BaseActivity {
         timeText = (TextView) findViewById(R.id.time_text);
         welcomeText = (TextView) findViewById(R.id.welcome_text);
         welcomeImg = (ImageView) findViewById(R.id.welcome_img);
+        backImg = (ImageView) findViewById(R.id.back_img);
     }
 
     @Override
@@ -79,6 +80,8 @@ public class WelcomeActivity extends BaseActivity {
             public void onSuccess(WelcomeBean response) {
                 String imgUrl = response.getStartPageAd().getImageUrl();
                 Glide.with(getApplicationContext()).load(imgUrl).into(welcomeImg);
+                Glide.with(getApplicationContext()).load(response.getStartPageAd().getBlurredImageUrl()).into(backImg);
+
             }
 
             @Override

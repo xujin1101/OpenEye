@@ -3,6 +3,7 @@ package com.eye.eyepetizer.okHttp;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 
 import com.google.gson.Gson;
 
@@ -61,7 +62,7 @@ public class OkHtttpUtil implements NetInterface {
 
     @Override
     public <T> void startRequest(String url, final Class<T> tClass, final onHttpCallBack<T> callBack) {
-        Request request = new Request.Builder().url(url).build();
+        final Request request = new Request.Builder().url(url).build();
         mClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -71,15 +72,36 @@ public class OkHtttpUtil implements NetInterface {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String str = response.body().string();
-                final T result = mGson.fromJson(str, tClass);
-                mHandler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        callBack.onSuccess(result);
-                    }
-                });
+                Log.d("OkHtttpUtil", str);
+                T result;
+                try {
+
+                    result = mGson.fromJson(str, tClass);
+                    mHandler.post(new MyRunnable<T>(result) {
+                        @Override
+                        public void run() {
+                            callBack.onSuccess(result);
+                        }
+                    });
+                }catch (Exception e){
+                    mHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            callBack.onError(new Throwable("解析不出来"));
+                        }
+                    });
+                }
+
             }
         });
 
+    }
+
+    abstract class MyRunnable<T> implements Runnable{
+        T result;
+
+        public MyRunnable(T result) {
+            this.result = result;
+        }
     }
 }
