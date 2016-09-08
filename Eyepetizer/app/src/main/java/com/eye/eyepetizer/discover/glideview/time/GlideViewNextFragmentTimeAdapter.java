@@ -40,6 +40,7 @@ import com.eye.eyepetizer.R;
  * 这周日你有空吗
  */
 public class GlideViewNextFragmentTimeAdapter extends BaseAdapter {
+
     private GlideViewFragmentTimeBean mBean;
     private Context context;
 
@@ -69,30 +70,38 @@ public class GlideViewNextFragmentTimeAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, final ViewGroup viewGroup) {
         MyView myView = null;
-        if (myView == null){
-            view = LayoutInflater.from(context).inflate(R.layout.item_discover_top_list_img,viewGroup,false);
+        if (myView == null) {
+            view = LayoutInflater.from(context).inflate(R.layout.item_discover_top_list_img, viewGroup, false);
             myView = new MyView(view);
             view.setTag(myView);
-        }else {
+        } else {
             myView = (MyView) view.getTag();
         }
-       // for (int j = 0; j < mBean.getItemList().size() - 1; j++) {
 
-            Glide.with(context).load(mBean.getItemList().get(i).getData().getCover().getFeed()).placeholder(R.mipmap.lolo).error(R.mipmap.lolo).thumbnail(0.2f).into(myView.imageView);
-      //}
+//        if (position == 0) {
+//            for (int j = 1; j < mBean.getItemList().size(); j++) {
+//                Glide.with(context).load(mBean.getItemList().get(j).getData().getCover().getFeed()).placeholder(R.mipmap.lolo).error(R.mipmap.lolo).thumbnail(0.2f).into(myView.imageView);
+//                myView.titleTxt.setText(mBean.getItemList().get(j).getData().getTitle());
+//                myView.descriptionTxt.setText("#" + mBean.getItemList().get(j).getData().getCategory());
+//                myView.numTxt.setText(j + 1 + ".");
+//            }
+//        } else {
+        Glide.with(context).load(mBean.getItemList().get(i).getData().getCover().getFeed()).placeholder(R.mipmap.lolo).error(R.mipmap.lolo).thumbnail(0.2f).into(myView.imageView);
         myView.titleTxt.setText(mBean.getItemList().get(i).getData().getTitle());
-        myView.descriptionTxt.setText("#"+mBean.getItemList().get(i).getData().getCategory());
-        myView.numTxt.setText(i+1+".");
-
+        myView.descriptionTxt.setText("#" + mBean.getItemList().get(i).getData().getCategory());
+        myView.numTxt.setText(i + 1 + ".");
+        // }
         ObjectAnimator.ofFloat(view, "translationY", 400, 0).setDuration(1000).start();
         ObjectAnimator.ofFloat(view, "rotationX", 360, 0).setDuration(1000).start();
         return view;
     }
-    class MyView{
+
+    class MyView {
 
         private ImageView imageView;
-        private TextView titleTxt,timeTxt,descriptionTxt,numTxt;
-        MyView(View view){
+        private TextView titleTxt, timeTxt, descriptionTxt, numTxt;
+
+        MyView(View view) {
             imageView = (ImageView) view.findViewById(R.id.img_back);
             titleTxt = (TextView) view.findViewById(R.id.title);
             timeTxt = (TextView) view.findViewById(R.id.txt_time);
@@ -100,4 +109,6 @@ public class GlideViewNextFragmentTimeAdapter extends BaseAdapter {
             numTxt = (TextView) view.findViewById(R.id.num_txt);
         }
     }
+
+
 }

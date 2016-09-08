@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.eye.eyepetizer.R;
 import com.eye.eyepetizer.base.BaseFragment;
+import com.eye.eyepetizer.discover.banner.BannerFirstNextActivity;
 import com.eye.eyepetizer.discover.glideview.GlideViewNextActivity;
 import com.eye.eyepetizer.discover.panorama.PanoramaNextActivity;
 import com.eye.eyepetizer.discover.top.TopActivity;
@@ -19,16 +20,22 @@ import com.eye.eyepetizer.discover.topic.TopIcActivity;
 import com.eye.eyepetizer.okHttp.NetTool;
 import com.eye.eyepetizer.okHttp.onHttpCallBack;
 import com.youth.banner.Banner;
+<<<<<<< HEAD
+
+=======
+>>>>>>> 3055927e5a53f7bb1c91f50ab49c1e53b4f0633e
 import com.youth.banner.listener.OnBannerClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
+//import com.youth.banner.listener.OnBannerClickListener;
+
 /**
  * 发现Fragment
  */
-public class DiscoverFragment extends BaseFragment implements OnClickListener{
-    private ImageView imgMatch,imgFirst,topIC;
+public class DiscoverFragment extends BaseFragment implements OnClickListener {
+    private ImageView imgMatch, imgFirst, topIC;
     private Banner mBanner;
     private List<String> bannerUrl;
     private GridView mGlideView;
@@ -77,19 +84,44 @@ public class DiscoverFragment extends BaseFragment implements OnClickListener{
                     //设置间隔
                     mBanner.setDelayTime(3000);
                     //添加图片
+<<<<<<< HEAD
+//                    mBanner.setImages(bannerUrl);
+=======
                     mBanner.setImages(bannerUrl);
-                    //banner加点
+>>>>>>> 3055927e5a53f7bb1c91f50ab49c1e53b4f0633e
+//                    //banner加点
 //                    mBanner.setBannerStyle(Banner.CIRCLE_INDICATOR);
-                    //点居中
-                  //  mBanner.setIndicatorGravity(Banner.CENTER);
+//                    //点居中
+//                    mBanner.setIndicatorGravity(Banner.CENTER);
+<<<<<<< HEAD
+                    mBanner.setOnBannerClickListener(new OnBannerClickListener() {
+                        @Override
+                        public void OnBannerClick(int position) {
+                            Toast.makeText(context, "点击了第"+position+"张", Toast.LENGTH_SHORT).show();
+=======
 
                     mBanner.setOnBannerClickListener(new OnBannerClickListener() {
                         @Override
                         public void OnBannerClick(int position) {
-
-                            Toast.makeText(context, "点击了第"+position+"张", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "点击了第" + position + "张", Toast.LENGTH_SHORT).show();
+                            switch (position) {
+                                case 1:
+                                    Intent intentfirst = new Intent(context, BannerFirstNextActivity.class);
+                                    intentfirst.putExtra("url", "http://www.wandoujia.com/eyepetizer/collection.html?name=autumn&shareable=true");
+                                    intentfirst.putExtra("text", "纵情犯罪: 贴, 秋, 膘");
+                                    startActivity(intentfirst);
+                                    break;
+//                                case 2:
+//                                    Intent intent = new Intent(context, BannerFirstNextActivity.class);
+//                                    intent.putExtra("url", "http://www.wandoujia.com/eyepetizer/article.html?nid=963&shareable=true");
+//                                    intent.putExtra("text", "时光里, 爱上独一无二的你");
+//                                    startActivity(intent);
+//                                    break;
+                            }
+>>>>>>> 3055927e5a53f7bb1c91f50ab49c1e53b4f0633e
                         }
                     });
+
                 }
 
 
@@ -99,12 +131,13 @@ public class DiscoverFragment extends BaseFragment implements OnClickListener{
                 Glide.with(getContext()).load(Match).into(imgMatch);
                 Glide.with(getContext()).load(FirstImg).into(imgFirst);
                 Glide.with(getContext()).load(SecondImg).into(topIC);
+<<<<<<< HEAD
+=======
 
 
-
+>>>>>>> 3055927e5a53f7bb1c91f50ab49c1e53b4f0633e
                 mDiscoverAdapter.setBean(response);
                 mGlideView.setAdapter(mDiscoverAdapter);
-
                 mGlideView.setOnItemClickListener(new OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -114,7 +147,7 @@ public class DiscoverFragment extends BaseFragment implements OnClickListener{
 
 
                         Intent intent = new Intent(context, GlideViewNextActivity.class);
-                        intent.putExtra("id",response.getItemList().get(position + 4).getData().getId());
+                        intent.putExtra("id", response.getItemList().get(position + 4).getData().getId());
                         startActivity(intent);
                     }
                 });
@@ -139,7 +172,7 @@ public class DiscoverFragment extends BaseFragment implements OnClickListener{
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.img_first:
                 Toast.makeText(context, "点击了最受欢迎", Toast.LENGTH_SHORT).show();
                 gotoActivity(context, TopActivity.class);
@@ -149,7 +182,7 @@ public class DiscoverFragment extends BaseFragment implements OnClickListener{
 //                Intent intent = new Intent(getActivity(),TopIcActivity.class);
 //                startActivity(intent);
 
-              //  gotoActivity(getContext(), TopIcActivity.class);
+                //  gotoActivity(getContext(), TopIcActivity.class);
                 break;
             case R.id.img_match:
                 Toast.makeText(context, "点击了360°", Toast.LENGTH_SHORT).show();

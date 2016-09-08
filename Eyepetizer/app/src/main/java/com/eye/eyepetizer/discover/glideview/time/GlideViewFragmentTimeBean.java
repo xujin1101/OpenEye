@@ -178,6 +178,16 @@ public class GlideViewFragmentTimeBean {
             private long date;
             private Object promotion;
             private Object label;
+            private String image;
+
+            public String getImage() {
+                return image;
+            }
+
+            public void setImage(String image) {
+                this.image = image;
+            }
+
             /**
              * height : 360
              * width : 640
