@@ -93,16 +93,16 @@ public class DiscoverFragment extends BaseFragment implements OnClickListener {
                             switch (position) {
                                 case 1:
                                     Intent intentfirst = new Intent(context, BannerFirstNextActivity.class);
-                                    intentfirst.putExtra("url", "http://www.wandoujia.com/eyepetizer/collection.html?name=autumn&shareable=true");
-                                    intentfirst.putExtra("text", "纵情犯罪: 贴, 秋, 膘");
+                                    intentfirst.putExtra("url", "http://www.wandoujia.com/eyepetizer/article.html?nid=973&shareable=true");
+                                    intentfirst.putExtra("text", "S 女神夏日海滩惊悚");
                                     startActivity(intentfirst);
                                     break;
-//                                case 2:
-//                                    Intent intent = new Intent(context, BannerFirstNextActivity.class);
-//                                    intent.putExtra("url", "http://www.wandoujia.com/eyepetizer/article.html?nid=963&shareable=true");
-//                                    intent.putExtra("text", "时光里, 爱上独一无二的你");
-//                                    startActivity(intent);
-//                                    break;
+                                case 2:
+                                    Intent intent = new Intent(context, BannerFirstNextActivity.class);
+                                    intent.putExtra("url", "http://www.wandoujia.com/eyepetizer/article.html?nid=963&shareable=true");
+                                    intent.putExtra("text", "时光里, 爱上独一无二的你");
+                                    startActivity(intent);
+                                    break;
                             }
                         }
                     });

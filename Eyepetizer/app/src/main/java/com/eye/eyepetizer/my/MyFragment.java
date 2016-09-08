@@ -13,7 +13,7 @@ import com.eye.eyepetizer.my.mymessage.MyMessageActivity;
  * 我的Fragment
  */
 public class MyFragment extends BaseFragment implements OnClickListener{
-    private TextView myMessage;
+    private TextView myMessage,myCollect;
     @Override
     protected int getLayout() {
         return R.layout.fragment_my;
@@ -22,8 +22,10 @@ public class MyFragment extends BaseFragment implements OnClickListener{
     @Override
     protected void initView() {
         myMessage = findView(R.id.my_message);
+        myCollect = findView(R.id.my_collect);
 
         myMessage.setOnClickListener(this);
+        myCollect.setOnClickListener(this);
     }
 
     @Override
@@ -38,6 +40,9 @@ public class MyFragment extends BaseFragment implements OnClickListener{
                 Toast.makeText(context, "我的消息", Toast.LENGTH_SHORT).show();
                 gotoActivity(context,MyMessageActivity.class);
                 break;
+            case R.id.my_collect:
+                Toast.makeText(context, "我的收藏", Toast.LENGTH_SHORT).show();
+                gotoActivity(context,MyCollectActivity.class);
         }
     }
 }
