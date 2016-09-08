@@ -8,13 +8,17 @@ import android.support.v7.widget.RecyclerView.Adapter;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.eye.eyepetizer.R;
+import com.eye.eyepetizer.allinterface.BriefOnClickListener;
+import com.eye.eyepetizer.allinterface.VideoBriefOnClickListener;
 
 import java.security.PolicySpi;
 
@@ -35,6 +39,17 @@ public class AuthorListAdapter extends Adapter<RecyclerView.ViewHolder> {
     private static final int BLANKCARD = 3;
 
     private LayoutInflater inflater;
+    //申明接口
+    private BriefOnClickListener mBriefOnClickListener;
+    private VideoBriefOnClickListener mVideoBriefOnClickListener;
+    //接口为空,给接口进行赋值
+    public void setBriefOnClickListener(BriefOnClickListener briefOnClickListener){
+        this.mBriefOnClickListener = briefOnClickListener;
+    }
+
+    public void setVideoBriefOnClickListener(VideoBriefOnClickListener videoBriefOnClickListener) {
+        mVideoBriefOnClickListener = videoBriefOnClickListener;
+    }
 
     //构造方法
     public AuthorListAdapter(Context context) {
@@ -81,17 +96,25 @@ public class AuthorListAdapter extends Adapter<RecyclerView.ViewHolder> {
                 break;
             case BRIEFCARD:
                 Log.d("bb", "position:" + position);
-                BriefCardViewHolder briefCardViewHolder = (BriefCardViewHolder) holder;
+                final BriefCardViewHolder briefCardViewHolder = (BriefCardViewHolder) holder;
                 briefCardViewHolder.tvTitle.setText(author.getItemList().get(position).getData().getTitle());
                 briefCardViewHolder.tvSubTitle.setText(author.getItemList().get(position).getData().getSubTitle());
                 briefCardViewHolder.tvDescription.setText(author.getItemList().get(position).getData().getDescription());
                 Glide.with(mContext).load(author.getItemList().get(position).getData().getIcon()).bitmapTransform(new CropCircleTransformation(mContext)).into(briefCardViewHolder.ivIcon);
                 //注意我这里的点击事件都没有设置呢.
-                // TODO: 16/9/1
+                briefCardViewHolder.mRelativeLayout.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //这里是获取到点击出对应位置的方法
+                        int position = briefCardViewHolder.getLayoutPosition();
+                        //这里边也是覆写这个点击方法.这里就是一个打电话的过程.
+                        mBriefOnClickListener.onClick(position);
+                    }
+                });
+
                 break;
             case VIDEOBRIEF:
-                VideoBriefViewHolder videoBriefViewHolder = (VideoBriefViewHolder) holder;
-
+                final VideoBriefViewHolder videoBriefViewHolder = (VideoBriefViewHolder) holder;
                 videoBriefViewHolder.tvTitle.setText(author.getItemList().get(position).getData().getHeader().getTitle());
                 videoBriefViewHolder.tvSubTitle.setText(author.getItemList().get(position).getData().getHeader().getSubTitle());
                 videoBriefViewHolder.tvDescription.setText(author.getItemList().get(position).getData().getHeader().getDescription());
@@ -105,11 +128,21 @@ public class AuthorListAdapter extends Adapter<RecyclerView.ViewHolder> {
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext);
                 linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
                 videoBriefViewHolder.recyclerView.setLayoutManager(linearLayoutManager);
+                // TODO: 16/9/3  里边对RecyclerView的adapter也要设置点击事件.,这里先不设置.
+                //这里直接给item设置点击事件,其中的RecyclerView是不能触发点击事件的.
+                //点击事件实在这个里边写,这里边有position.
+                videoBriefViewHolder.mLinearLayout.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        int position = videoBriefViewHolder.getLayoutPosition();
+                        mVideoBriefOnClickListener.onClick(position);
+                    }
+                });
+
                 break;
             case BLANKCARD:
                 BrankCaredViewHolder brankCaredViewHolder = (BrankCaredViewHolder) holder;
                 break;
-
 
         }
     }
@@ -134,7 +167,6 @@ public class AuthorListAdapter extends Adapter<RecyclerView.ViewHolder> {
                 break;
             case "blankCard":
                 type = BLANKCARD;
-
         }
         return type;
     }
@@ -152,6 +184,7 @@ public class AuthorListAdapter extends Adapter<RecyclerView.ViewHolder> {
     class BriefCardViewHolder extends RecyclerView.ViewHolder {
         private ImageView ivIcon;
         private TextView tvTitle, tvSubTitle, tvDescription;
+        private RelativeLayout mRelativeLayout;
 
         public BriefCardViewHolder(View itemView) {
             super(itemView);
@@ -159,6 +192,7 @@ public class AuthorListAdapter extends Adapter<RecyclerView.ViewHolder> {
             tvTitle = (TextView) itemView.findViewById(R.id.hot_author);
             tvDescription = (TextView) itemView.findViewById(R.id.description);
             tvSubTitle = (TextView) itemView.findViewById(R.id.video_number);
+            mRelativeLayout = (RelativeLayout) itemView.findViewById(R.id.briefcard_relative);
         }
     }
 
@@ -166,6 +200,7 @@ public class AuthorListAdapter extends Adapter<RecyclerView.ViewHolder> {
         ImageView ivIcon;
         TextView tvTitle, tvSubTitle, tvDescription;
         RecyclerView recyclerView;
+        LinearLayout mLinearLayout;
 
         public VideoBriefViewHolder(View itemView) {
             super(itemView);
@@ -174,6 +209,7 @@ public class AuthorListAdapter extends Adapter<RecyclerView.ViewHolder> {
             tvDescription = (TextView) itemView.findViewById(R.id.description);
             tvSubTitle = (TextView) itemView.findViewById(R.id.video_number);
             recyclerView = (RecyclerView) itemView.findViewById(R.id.recy_videobrief_data);
+            mLinearLayout = (LinearLayout) itemView.findViewById(R.id.videobrief_relative);
         }
     }
 

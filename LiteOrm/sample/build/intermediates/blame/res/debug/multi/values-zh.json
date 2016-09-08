@@ -1,0 +1,161 @@
+[
+    {
+        "outputFile": "/Users/dllo/Desktop/GitDemo/OpenEye/LiteOrm/sample/build/intermediates/res/merged/debug/values-zh/values-zh.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endLine": 18,
+                    "endColumn": 19,
+                    "endOffset": 615
+                },
+                "from": {
+                    "file": "/Users/dllo/Desktop/GitDemo/OpenEye/LiteOrm/sample/src/main/res/values-zh/strings.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 404,
+                        "endLine": 27,
+                        "endColumn": 19,
+                        "endOffset": 964
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 620,
+                    "endColumn": 44,
+                    "endOffset": 660
+                },
+                "from": {
+                    "file": "/Users/dllo/Desktop/GitDemo/OpenEye/LiteOrm/sample/src/main/res/values-zh/strings.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 56,
+                        "endColumn": 44,
+                        "endOffset": 96
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 665,
+                    "endColumn": 48,
+                    "endOffset": 709
+                },
+                "from": {
+                    "file": "/Users/dllo/Desktop/GitDemo/OpenEye/LiteOrm/sample/src/main/res/values-zh/strings.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 259,
+                        "endColumn": 48,
+                        "endOffset": 303
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 714,
+                    "endColumn": 47,
+                    "endOffset": 757
+                },
+                "from": {
+                    "file": "/Users/dllo/Desktop/GitDemo/OpenEye/LiteOrm/sample/src/main/res/values-zh/strings.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 355,
+                        "endColumn": 47,
+                        "endOffset": 398
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 22,
+                    "startColumn": 4,
+                    "startOffset": 762,
+                    "endColumn": 46,
+                    "endOffset": 804
+                },
+                "from": {
+                    "file": "/Users/dllo/Desktop/GitDemo/OpenEye/LiteOrm/sample/src/main/res/values-zh/strings.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 308,
+                        "endColumn": 46,
+                        "endOffset": 350
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 23,
+                    "startColumn": 4,
+                    "startOffset": 809,
+                    "endColumn": 45,
+                    "endOffset": 850
+                },
+                "from": {
+                    "file": "/Users/dllo/Desktop/GitDemo/OpenEye/LiteOrm/sample/src/main/res/values-zh/strings.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 101,
+                        "endColumn": 45,
+                        "endOffset": 142
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 24,
+                    "startColumn": 4,
+                    "startOffset": 855,
+                    "endColumn": 56,
+                    "endOffset": 907
+                },
+                "from": {
+                    "file": "/Users/dllo/Desktop/GitDemo/OpenEye/LiteOrm/sample/src/main/res/values-zh/strings.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 202,
+                        "endColumn": 56,
+                        "endOffset": 254
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 25,
+                    "startColumn": 4,
+                    "startOffset": 912,
+                    "endColumn": 54,
+                    "endOffset": 962
+                },
+                "from": {
+                    "file": "/Users/dllo/Desktop/GitDemo/OpenEye/LiteOrm/sample/src/main/res/values-zh/strings.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 147,
+                        "endColumn": 54,
+                        "endOffset": 197
+                    }
+                }
+            }
+        ]
+    }
+]

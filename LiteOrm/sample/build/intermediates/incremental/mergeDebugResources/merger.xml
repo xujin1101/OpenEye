@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main$Generated" generated="true"><source path="/Users/dllo/Desktop/GitDemo/OpenEye/LiteOrm/sample/src/main/res"/><source path="/Users/dllo/Desktop/GitDemo/OpenEye/LiteOrm/sample/build/generated/res/rs/debug"/><source path="/Users/dllo/Desktop/GitDemo/OpenEye/LiteOrm/sample/build/generated/res/resValues/debug"/></dataSet><dataSet config="debug$Generated" generated="true"><source path="/Users/dllo/Desktop/GitDemo/OpenEye/LiteOrm/sample/src/debug/res"/></dataSet><dataSet config="main" generated-set="main$Generated"><source path="/Users/dllo/Desktop/GitDemo/OpenEye/LiteOrm/sample/src/main/res"><file name="ic_launcher" path="/Users/dllo/Desktop/GitDemo/OpenEye/LiteOrm/sample/src/main/res/drawable/ic_launcher.png" qualifiers="" type="drawable"/><file name="selector_button" path="/Users/dllo/Desktop/GitDemo/OpenEye/LiteOrm/sample/src/main/res/drawable/selector_button.xml" qualifiers="" type="drawable"/><file name="ic_launcher" path="/Users/dllo/Desktop/GitDemo/OpenEye/LiteOrm/sample/src/main/res/drawable-xxhdpi/ic_launcher.png" qualifiers="xxhdpi-v4" type="drawable"/><file name="act_list_btn" path="/Users/dllo/Desktop/GitDemo/OpenEye/LiteOrm/sample/src/main/res/layout/act_list_btn.xml" qualifiers="" type="layout"/><file name="act_main" path="/Users/dllo/Desktop/GitDemo/OpenEye/LiteOrm/sample/src/main/res/layout/act_main.xml" qualifiers="" type="layout"/><file path="/Users/dllo/Desktop/GitDemo/OpenEye/LiteOrm/sample/src/main/res/values/colors.xml" qualifiers=""><color name="border">#000000</color><color name="text">#000000</color><color name="border_bkg">#FFFFFF</color><color name="transparent">#00000000</color><color name="button_disable">#f1f1f1</color><color name="main_bkg">#E3DBCF</color><color name="button_text">#000000</color><color name="button_press">#cecece</color><color name="button">#FFFFFF</color></file><file path="/Users/dllo/Desktop/GitDemo/OpenEye/LiteOrm/sample/src/main/res/values/dimens.xml" qualifiers=""><dimen name="activity_vertical_margin">16dp</dimen><dimen name="common_marin">10dp</dimen><dimen name="vertical_height">15dp</dimen><dimen name="common_title">20sp</dimen><dimen name="activity_horizontal_margin">16dp</dimen><dimen name="common_text">16sp</dimen><dimen name="common_marin_min">6dp</dimen><dimen name="min_height">40dp</dimen></file><file path="/Users/dllo/Desktop/GitDemo/OpenEye/LiteOrm/sample/src/main/res/values/strings.xml" qualifiers=""><string name="title">LiteLab-ORM</string><string name="app_name">LiteOrm</string><string name="sub_title">see more debug info via log</string><string name="test_single">single persistence TEST</string><string-array name="orm_test_case">
+        <item>Save(Insert Or Update)</item>
+        <item>Insert</item>
+        <item>Update</item>
+        <item>Update Column</item>
+        <item>Query All</item>
+        <item>Query By WhereBuilder</item>
+        <item>Query By ID</item>
+        <item>Query Any U Want</item>
+        <item>Mapping Test</item>
+        <item>Delete</item>
+        <item>Delete By Index</item>
+        <item>Delete By WhereBuilder</item>
+        <item>Delete All</item>
+        <item>LiteOrm Faster: Large-scale Test(100,000)</item>
+        <item>SQLiteDatabase: Large-scale Test(100,000)</item>
+    </string-array><string name="title_single">Single-Operation(only current entity)</string><string name="title_cascade">Cascade-Operation(all related entity)</string><string name="test_cascade">cascade persistence TEST</string></file><file path="/Users/dllo/Desktop/GitDemo/OpenEye/LiteOrm/sample/src/main/res/values/styles.xml" qualifiers=""><style name="AppTheme" parent="AppBaseTheme">
+
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        <item name="android:buttonStyle">@style/Button</item>
+    </style><style name="Button" parent="@android:style/Widget.Button">
+        <item name="android:background">@drawable/selector_button</item>
+        <item name="android:textColor">@color/button_text</item>
+        <item name="android:textSize">@dimen/common_text</item>
+        <item name="android:minHeight">@dimen/min_height</item>
+    </style><style name="AppBaseTheme" parent="android:Theme.Light.NoTitleBar">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+
+
+        -->
+    </style></file><file path="/Users/dllo/Desktop/GitDemo/OpenEye/LiteOrm/sample/src/main/res/values-zh/strings.xml" qualifiers="zh"><string name="app_name">LiteOrm</string><string name="title_cascade">级联实例(操作全部关联实体)</string><string name="test_single">单一操作测试</string><string name="sub_title">通过日志查看测试信息</string><string name="test_cascade">级联操作测试</string><string name="title">Lite实验室-ORM</string><string-array name="orm_test_case">
+        <item>保存(Insert Or Update)</item>
+        <item>新增(Insert)</item>
+        <item>更新(Update)</item>
+        <item>更新 指定列</item>
+        <item>查找 全部</item>
+        <item>查找 使用WhereBuilder</item>
+        <item>查询 根据ID</item>
+        <item>查询 任意</item>
+        <item>实体关联测试</item>
+        <item>删除 实体</item>
+        <item>删除 指定数量</item>
+        <item>删除 使用WhereBuilder</item>
+        <item>删除全部</item>
+        <item>LiteOrm 更快：大量数据测试(100,000)</item>
+        <item>SQLiteDatabase：大量数据测试(100,000)</item>
+    </string-array><string name="title_single">简单实例(仅操作当前实体)</string></file></source><source path="/Users/dllo/Desktop/GitDemo/OpenEye/LiteOrm/sample/build/generated/res/rs/debug"/><source path="/Users/dllo/Desktop/GitDemo/OpenEye/LiteOrm/sample/build/generated/res/resValues/debug"/></dataSet><dataSet config="debug" generated-set="debug$Generated"><source path="/Users/dllo/Desktop/GitDemo/OpenEye/LiteOrm/sample/src/debug/res"/></dataSet><mergedItems/></merger>

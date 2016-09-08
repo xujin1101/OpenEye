@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/img_back"
         android:layout_width="match_parent"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         android:layout_height="@dimen/two_hundred"/>
     <RelativeLayout
         android:layout_width="match_parent"
